@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/Carla-TOWN/static/js/main.2c51faba.js",
-    "index.html": "/Carla-TOWN/index.html",
-    "main.2c51faba.js.map": "/Carla-TOWN/static/js/main.2c51faba.js.map"
+    "main.js": "/static/js/main.f8ab9284.js",
+    "index.html": "/index.html",
+    "main.f8ab9284.js.map": "/static/js/main.f8ab9284.js.map"
   },
   "entrypoints": [
-    "static/js/main.2c51faba.js"
+    "static/js/main.f8ab9284.js"
   ]
 }
