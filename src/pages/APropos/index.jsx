@@ -13,7 +13,7 @@ function APropos() {
           <hr className="text-center col-1 " />
         </div>
         <div className=" row justify-content-center">
-          <div className="row  col-6">
+          <div className="row  col-12 col-md-6">
             <Biographie />
             <Experience />
           </div>

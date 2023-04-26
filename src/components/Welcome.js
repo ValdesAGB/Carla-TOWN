@@ -1,14 +1,21 @@
 import React from 'react'
+import styled from 'styled-components'
 
 function Welcome() {
   const CV = `Avec ce boutton le CV du client sera téléchargé par le visiteur du portfolio.`
 
+  const DIV = styled.div`
+    @media (max-width: 768px) {
+      margin-top: -200px;
+    }
+  `
+
   return (
     <React.Fragment>
-      <div className="col-6">
+      <DIV className="col-md-6 col-12 d-one d-md-block">
         <h2>Hello, je suis Carla TOWN</h2>
         <h2 style={{ color: '#00aff9' }}>PHOTOGRAPHE</h2>
-        <p>
+        <p className="fw-light">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
@@ -20,7 +27,7 @@ function Welcome() {
         >
           Télécharger mon CV
         </button>
-      </div>
+      </DIV>
     </React.Fragment>
   )
 }

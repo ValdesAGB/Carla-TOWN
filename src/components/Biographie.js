@@ -4,7 +4,7 @@ function Biographie() {
   const CV = `Avec ce boutton le CV du client sera téléchargé par le visiteur du portfolio.`
   return (
     <React.Fragment>
-      <div className="col-5">
+      <div className="col-12 col-md-5 order-md-0 order-1 ">
         <h5>L'ESSENTIEL A CONNAITRE SUR MOI</h5>
         <p className="fw-light">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -13,22 +13,22 @@ function Contact() {
     <React.Fragment>
       <Style>
         <div className="container my-5" id="contact">
-          <div className="row justify-content-center mb-5 ">
+          <div className="row justify-content-center mb-0 mb-md-5">
             <h3 className="text-center col-12">
               CONTACTEZ-<span style={{ color: '#00aff9' }}>MOI</span>
             </h3>
             <hr className="text-center col-1 " />
           </div>
           <div className="row">
-            <div className="row col text-center">
-              <h3>CONTACTEZ-MOI ICI</h3>
+            <div className="row col-12 col-md text-center ">
+              <h3 className="d-none d-md-block">CONTACTEZ-MOI ICI</h3>
               {coordonnes.map(({ id, icone, title }) => (
-                <i className={`col-12 fs-5  ${icone}`} key={id}>
+                <i className={`col-12 fs-5 my-2 my-md-0 ${icone}`} key={id}>
                   <span> {title}</span>
                 </i>
               ))}
             </div>
-            <div className="col">
+            <div className="col mt-5 mt-md-0">
               <ContactForm />
             </div>
           </div>

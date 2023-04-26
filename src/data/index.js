@@ -77,9 +77,42 @@ export const blogElemens = [
 
 export const experience = (number, word) => {
   return (
-    <h3 className="col-4 py-2 text-center border m-2 rounded-3 text-break">
+    <h3 className="col-md-4 col-5 py-2 text-center border m-2 rounded-3 text-break">
       <div style={{ color: '#00aff9', border: '#00aff9' }}>+{number}</div>{' '}
       {word}
     </h3>
   )
 }
+
+export const HeaderContent = [
+  {
+    id: '1',
+    href: 'accueil',
+    icone: 'bi-house-door-fill',
+    text: 'Accueil',
+  },
+  {
+    id: '2',
+    href: 'aboutme',
+    icone: 'bi-person-circle',
+    text: 'à Propos de moi',
+  },
+  {
+    id: '3',
+    href: 'galerie',
+    icone: 'bi-images',
+    text: 'Ma galerie',
+  },
+  {
+    id: '4',
+    href: 'blog',
+    icone: 'bi-chat-left-text',
+    text: 'Mon blog',
+  },
+  {
+    id: '5',
+    href: 'contact',
+    icone: 'bi-telephone-fill',
+    text: 'Contactez-moi',
+  },
+]

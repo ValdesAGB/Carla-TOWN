@@ -5,7 +5,10 @@ function GalerieComponent({ title, cover }) {
 
   return (
     <React.Fragment>
-      <div className="card p-0 mx-2 border-0" style={{ width: '18rem' }}>
+      <div
+        className="card p-0 mx-2 border-0 my-3 my-md-0"
+        style={{ width: '18rem' }}
+      >
         <img
           src={cover}
           className="card-img-top "

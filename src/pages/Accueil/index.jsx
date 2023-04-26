@@ -10,9 +10,9 @@ function Accueil() {
   `
   return (
     <React.Fragment>
-      <Style className="py-5" id="accueil">
-        <div className="row align-items-center">
-          <div className="col-5">
+      <Style className="py-5 " id="accueil">
+        <div className="row align-items-center ">
+          <div className="col-12 col-md-5">
             <img
               className="w-100"
               src="https://www.portraitprofessionnel.fr/wp-content/uploads/2022/02/Photographe_profesionnel_portrait_studio_corporate.jpg"

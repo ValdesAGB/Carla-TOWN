@@ -17,7 +17,7 @@ function Galerie() {
           </h3>
           <hr className="text-center col-1 " />
           <p className="text-center row justify-content-center col-12">
-            <span className="col-6" style={{ fontFamily: 'Montserrat' }}>
+            <span className="col-md-6 col-12 ">
               J'ai regroupé ici, l'ensemble de mes prises,{' '}
               <span>Images et vidéos</span> pour vous permettre d'apprécié ma
               créativité.
