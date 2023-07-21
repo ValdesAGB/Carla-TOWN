@@ -1,86 +1,156 @@
 import React from 'react'
 import styled from 'styled-components'
 import { HeaderContent } from '../data'
+import { colors } from '../untils/color'
+
+const Container = styled.header`
+  position: fixed;
+  z-index: 3;
+  top: 35%;
+  right: -15px;
+
+  @media (min-width: 576px) {
+    top: 50%;
+  }
+
+  @media (min-width: 768px) {
+    top: 10%;
+    cursor: pointer;
+    transform: translateX(25px);
+    transition: all 0.8s;
+    &:hover {
+      transform: translateX(-10px);
+    }
+  }
+  @media (min-width: 992px) {
+    top: 20%;
+  }
+  @media (min-width: 1200px) {
+    top: 10%;
+  }
+  @media (min-width: 1400px) {
+    top: 25%;
+  }
+`
+
+const ToggleBtn = styled.button`
+  background-color: ${colors.mainColor};
+  border: 0;
+  border-radius: 0;
+`
+
+const Toggle = styled.i`
+  font-size: 2em;
+  color: white;
+`
+
+const OffcanvasBody = styled.div`
+  background-color: ${colors.mainColor};
+  @media (min-width: 768px) {
+    background-color: ${colors.offcanvasBodyBgColor};
+    transition: all 0.8s 0.3s;
+    ${Container} : hover & {
+      background-color: ${colors.offcanvasBodyHoverBgColor};
+    }
+  }
+`
+
+const MenuList = styled.ul`
+  font-size: 1.5rem;
+  text-align: center;
+  position: relative;
+  color: white;
+  padding: 1rem;
+  list-style: none;
+`
+
+const Menu = styled.li`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  .icone {
+    display: none;
+    transition: color 0.7s 0.2s, transform 0.6s;
+    &:hover {
+      color: ${colors.secondColor};
+      transform: translateY(-5px);
+    }
+    @media (min-width: 768px) {
+      display: block;
+    }
+    @media (min-width: 992px) {
+      font-size: 1.2em;
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 1.5em;
+    }
+  }
+
+  .text {
+    border: solid 1px ${colors.secondColor};
+    border-radius: 5px;
+    font-size: 0.6em;
+    display: block;
+    padding: 10px 0;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+`
 
 function Header() {
-  const Header = styled.header`
-    position: fixed;
-    top: 15%;
-    left: 94%;
-    width: 100%;
-    z-index: 9999;
-    @media (max-width: 768px) {
-      top: 25%;
-      left: 79%;
-    }
-  `
   return (
     <React.Fragment>
-      <Header className="py-4">
-        <nav class="navbar navbar-expand-md">
-          <div class="container-fluid">
-            <button
-              style={{ backgroundColor: '#00121c' }}
-              class="navbar-toggler "
+      <Container>
+        <nav className="navbar navbar-expand-md">
+          <div className="container-fluid">
+            <ToggleBtn
+              className="navbar-toggler "
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasExample"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
             >
-              <i class="bi bi-list text-white" style={{ fontSize: '2em' }}></i>
-            </button>
+              <Toggle className="bi bi-list" />
+            </ToggleBtn>
 
             <div
-              class="offcanvas offcanvas-start w-75"
-              tabindex="-1"
+              className="offcanvas offcanvas-start w-75"
+              tabIndex="-1"
               id="offcanvasExample"
               aria-labelledby="offcanvasExampleLabel"
             >
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+              <div className="offcanvas-header">
+                <h5 className="offcanvas-title" id="offcanvasExampleLabel">
                   MENU
                 </h5>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="offcanvas"
                   aria-label="Close"
                 ></button>
               </div>
-              <div
-                class="offcanvas-body rounded-0 rounded-md-5 "
-                style={{ backgroundColor: '#00121c' }}
-              >
-                <ul className=" list-unstyled fs-1  text-center position-relative text-white p-3 ">
+              <OffcanvasBody className="offcanvas-body">
+                <MenuList>
                   {HeaderContent.map(({ id, href, icone, text }) => (
-                    <li className="nav-item my-3 " key={id}>
+                    <Menu className="nav-item" key={id}>
                       <a
-                        className="nav-link d-none d-md-block"
+                        className="nav-link col-12 col-sm-6 col-md-12 mx-auto"
                         href={`#${href}`}
                       >
-                        <i className={` bi ${icone}`}></i>
+                        <i className={` bi ${icone} icone `} />
+                        <span className="text ">{text.toUpperCase()}</span>
                       </a>
-                      <a
-                        className="nav-link d-md-none d-block"
-                        href={`#${href}`}
-                      >
-                        <button
-                          className=" btn text-white"
-                          style={{ borderColor: '#00aff9', fontSize: '0.6em' }}
-                        >
-                          {text.toUpperCase()}
-                        </button>
-                      </a>
-                    </li>
+                    </Menu>
                   ))}
-                </ul>
-              </div>
+                </MenuList>
+              </OffcanvasBody>
             </div>
           </div>
         </nav>
-      </Header>
+      </Container>
     </React.Fragment>
   )
 }

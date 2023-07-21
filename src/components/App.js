@@ -6,26 +6,30 @@ import Galerie from '../pages/Galerie'
 import APropos from '../pages/APropos'
 import Accueil from '../pages/Accueil'
 import Header from './Header'
+import { BlogProvider } from '../untils/context'
+import Footer from './Footer'
+import { polices } from '../untils/police'
 
+const GlobalStyle = createGlobalStyle`
+*{
+  font-family : ${polices.main};
+}
+`
 function App() {
-  const GlobalStyle = createGlobalStyle`
-  *{
-    font-family : "Montserrat";
-  }
-  `
   return (
     <React.Fragment>
       <GlobalStyle />
-
-      <div className="row ">
-        <Accueil />
-        <APropos />
-        <Galerie />
-        <Blog />
-        <Contact />
-      </div>
-
-      <Header />
+      <BlogProvider>
+        <Header />
+        <main className="row">
+          <Accueil />
+          <APropos />
+          <Galerie />
+          <Blog />
+          <Contact />
+        </main>
+        <Footer />
+      </BlogProvider>
     </React.Fragment>
   )
 }

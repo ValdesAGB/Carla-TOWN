@@ -1,4 +1,29 @@
 import React from 'react'
+import styled from 'styled-components'
+import { colors } from '../untils/color'
+
+const Input = styled.input`
+  border: none;
+  background-color: ${colors.inputBgColor};
+  color: white;
+`
+
+const Textarea = styled.textarea`
+  border: none;
+  background-color: ${colors.inputBgColor};
+  color: white;
+`
+const SubmitBtnContainer = styled.div`
+  text-align: end;
+`
+const SubmitBtn = styled.button`
+  background-color: ${colors.secondColor};
+  color: white;
+  font-weight: 600;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+`
 
 function ContactForm() {
   return (
@@ -8,49 +33,30 @@ function ContactForm() {
           <label htmlFor="name" className="form-label">
             Ton nom
           </label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            style={{ border: 'none', backgroundColor: '#53666d' }}
-          />
+          <Input type="text" className="form-control" id="name" />
         </div>
         <div className="mb-3 col-6">
           <label htmlFor="mail" className="form-label">
             Ton E-mail
           </label>
-          <input
+          <Input
             type="email"
             className="form-control"
             id="mail"
             aria-describedby="emailHelp"
-            style={{ border: 'none', backgroundColor: '#53666d' }}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="message" className="form-label">
             Ton message
           </label>
-          <textarea
-            className="form-control border-0"
-            style={{ height: '150px', backgroundColor: '#53666d' }}
-          ></textarea>
+          <Textarea className="form-control" rows={5}></Textarea>
         </div>
-        <span className=" text-end">
-          <button
-            type="submit"
-            className="btn text-white"
-            style={{ backgroundColor: '#00aff9' }}
-            onClick={(e) => {
-              e.preventDefault()
-              alert(
-                "L'envoie du message se fera dès qu'on clique sur ce bouton."
-              )
-            }}
-          >
+        <SubmitBtnContainer>
+          <SubmitBtn type="submit" onClick={(e) => e.preventDefault()}>
             Envoyer
-          </button>
-        </span>
+          </SubmitBtn>
+        </SubmitBtnContainer>
       </form>
     </React.Fragment>
   )

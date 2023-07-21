@@ -1,40 +1,57 @@
 import React from 'react'
+import { indice } from '../data'
+import styled from 'styled-components'
+import { colors } from '../untils/color'
+import { polices } from '../untils/police'
+
+const Card = styled.div`
+  width: 18rem;
+  padding: 0;
+  border: none;
+  margin: 1rem 0.5rem;
+  @media (min-width: 768px) {
+    margin: 0.75rem 0.5rem;
+    margin-bottom: 0;
+  }
+`
+
+const Title = styled.h5`
+  text-align: center;
+  color: ${colors.galerieTitleColor};
+  span {
+    font-weight: bold;
+  }
+`
+const BtnContainer = styled.div`
+  text-align: center;
+`
+
+const Boutton = styled.button`
+  border: none;
+  border-radius: 10rem;
+  padding: 2% 10%;
+  background-color: ${colors.mainColor};
+  font-family: ${polices.main};
+  color: ${colors.secondColor};
+`
 
 function GalerieComponent({ title, cover }) {
-  const indice = `Ici une page s'ouvrira selon l'élément voulu et le présentera en détails`
-
   return (
     <React.Fragment>
-      <div
-        className="card p-0 mx-2 border-0 my-3 my-md-0"
-        style={{ width: '18rem' }}
-      >
-        <img
-          src={cover}
-          className="card-img-top "
-          alt="Ma galerie"
-          style={{ height: '200px' }}
-        />
+      <Card className="card">
+        <img src={cover} className="card-img-top " alt={title} />
         <div className="card-body">
-          <h5 className="card-title text-center text-dark">
-            Mes <span className="fw-bold">{title}</span>
-          </h5>
+          <Title className="card-title">
+            Mes <span>{title}</span>
+          </Title>
 
-          <span className="text-center row justify-content-center">
-            <button
-              className="btn btn-primary col-6 border-0 rounded-5"
-              style={{
-                backgroundColor: '#00121c',
-                fontFamily: 'Montserrat',
-                color: '#00aff9',
-              }}
-              onClick={() => alert(indice)}
-            >
+          <BtnContainer className="row justify-content-center">
+            <Boutton className=" col-7" onClick={() => alert(indice)}>
               Parcourir
-            </button>
-          </span>
+            </Boutton>
+          </BtnContainer>
         </div>
-      </div>
+      </Card>
     </React.Fragment>
   )
 }

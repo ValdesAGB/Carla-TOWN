@@ -1,29 +1,57 @@
 import React from 'react'
 import styled from 'styled-components'
+import { alerts } from '../data'
+import { colors } from '../untils/color'
+
+const Card = styled.div`
+  width: 100%;
+  border: 1px solid ${colors.blogCardBorderColor};
+  padding: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: box-shadow 0.5s 0.2s ease-in-out, transform 0.8s;
+  &:hover {
+    box-shadow: 0 0 10px ${colors.secondColor};
+    transform: translateY(-10px);
+  }
+`
+
+const Cover = styled.img`
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.8s;
+  ${Card}:hover & {
+    transform: scale(1.15);
+  }
+`
+
+const CardBody = styled.div`
+  padding: 10px;
+`
+
+const Title = styled.h5`
+  font-weight: bolder;
+`
+
+const Paragraph = styled.p`
+  font-size: 0.95em;
+  font-weight: 400;
+`
 
 function BlogCard({ id, cover, title, text }) {
-  const Card = styled.div`
-    border: 1px solid #c1c1c1;
-    border-radius: 10px;
-    &:hover {
-      cursor: pointer;
-    }
-  `
-
-  const alerts = `A cette étape, un pop ou fenêtre ou encore une page s'ouvrira pour présenter les détails de l'article. Si c'est une page, on aura la possibilité de mettre un espace commentaire. Les choix sont multiples`
   return (
     <React.Fragment>
-      <Card className="card m-1 mb-5 mb-md-1" onClick={() => alert(alerts)}>
-        <img
-          src={cover}
-          className="card-img-top"
-          alt={id}
-          style={{ height: '150px' }}
-        />
-        <h5 className="card-title ms-1">{title}</h5>
-        <div className="card-body">
-          <p className="card-text fw-light">{text && text.slice(0, 90)}...</p>
-        </div>
+      <Card className="card" onClick={() => alert(alerts)}>
+        <Cover src={cover} className="card-img-top" alt={id} />
+        <CardBody>
+          <Title className="card-title ">{title}</Title>
+
+          <Paragraph className="card-text">
+            {text && text.slice(0, 90)}...
+          </Paragraph>
+        </CardBody>
       </Card>
     </React.Fragment>
   )

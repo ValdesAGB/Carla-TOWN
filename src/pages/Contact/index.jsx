@@ -2,38 +2,81 @@ import React from 'react'
 import { coordonnes } from '../../data'
 import ContactForm from '../../components/ContactForm'
 import styled from 'styled-components'
+import AllSectionHead from '../../components/AllSectionHead'
+import { colors } from '../../untils/color'
 
+const Section = styled.section`
+  background-color: ${colors.mainColor};
+  color: white;
+
+  padding: 20% 0;
+
+  @media (min-width: 576px) {
+    padding: 10% 0;
+  }
+  @media (min-width: 992px) {
+    padding: 8% 0;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 5% 0;
+  }
+`
+
+const Content = styled.div`
+  margin-top: 5%;
+`
+
+const CoordonneContent = styled.div`
+  text-align: center;
+  height: 100%;
+`
+
+const Coordoonee = styled.i`
+  font-size: 1em;
+  cursor: pointer;
+  margin: 2% 0;
+  @media (min-width: 768px) {
+    margin: 0;
+  }
+  span {
+    transition: all 500ms;
+    &:hover {
+      color: ${colors.secondColor};
+    }
+  }
+`
+
+const FormulaireContainer = styled.div`
+  margin-top: 10%;
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
+`
 function Contact() {
-  const Style = styled.section`
-    background-color: #00121c;
-    color: white;
-    font-family: 'Montserrat';
-  `
   return (
     <React.Fragment>
-      <Style>
-        <div className="container my-5" id="contact">
-          <div className="row justify-content-center mb-0 mb-md-5">
-            <h3 className="text-center col-12">
-              CONTACTEZ-<span style={{ color: '#00aff9' }}>MOI</span>
-            </h3>
-            <hr className="text-center col-1 " />
-          </div>
-          <div className="row">
-            <div className="row col-12 col-md text-center ">
-              <h3 className="d-none d-md-block">CONTACTEZ-MOI ICI</h3>
-              {coordonnes.map(({ id, icone, title }) => (
-                <i className={`col-12 fs-5 my-2 my-md-0 ${icone}`} key={id}>
-                  <span> {title}</span>
-                </i>
-              ))}
+      <Section>
+        <div className="container" id="contact">
+          <AllSectionHead title={'Contactez -'} designation={'Moi'} />
+          <Content className="row">
+            <div className="col-12 col-md">
+              <CoordonneContent className="row">
+                <h4 className="d-none d-md-block">CONTACTEZ-MOI ICI</h4>
+                {coordonnes.map(({ id, icone, title }) => (
+                  <Coordoonee className={`col-12  ${icone}`} key={id}>
+                    <span> {title}</span>
+                  </Coordoonee>
+                ))}
+              </CoordonneContent>
             </div>
-            <div className="col mt-5 mt-md-0">
+
+            <FormulaireContainer className="col">
               <ContactForm />
-            </div>
-          </div>
+            </FormulaireContainer>
+          </Content>
         </div>
-      </Style>
+      </Section>
     </React.Fragment>
   )
 }
